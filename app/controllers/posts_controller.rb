@@ -13,8 +13,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(title: params[:post][:title])
-    @post.user = current_user
+    @post = current_user.posts.new(post_params)
     if @post.save
       flash[:notice] = "Post created successfully."
       redirect_to post_path(@post.id)
@@ -44,5 +43,14 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  private
+  
+  # Use strong_parameters for attribute whitelisting
+  # Be sure to update your create() and update() controller methods.
+  
+  def post_params
+    params.require(:post).permit(:title, :pic)
   end
 end

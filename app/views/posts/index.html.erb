@@ -1,5 +1,11 @@
 <h1>All Posts</h1>
 <% @posts.each do |post| %>
-  <%= link_to post.title, post %>
-  <br>
+  <div class="card" style="width: 20rem;">
+    <img class="card-img-top" src="<%= post.pic %>" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title"><%=post.title%></h4>
+      <p class="card-text"></p>
+      <%= link_to 'View', post_path(post), :class => "btn btn-primary"  %>
+    </div>
+  </div>
 <% end %>
