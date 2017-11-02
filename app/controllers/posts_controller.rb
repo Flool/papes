@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   def new
     if !current_user.nil?
-      @post_new = current_user.posts.new
+      @post_new = Post.new
     end
   end
 
