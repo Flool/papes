@@ -21,9 +21,11 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+    <% if current_user %>
       <li class="nav-item">
         <a class="nav-link" href="/posts/new">Create Thread</a>
       </li>
+    <%end%>
       
     </ul>
     <ul class="nav navbar-nav navbar-right">

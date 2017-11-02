@@ -10,16 +10,18 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post_new = current_user.posts.new
+    if !current_user.nil?
+      @post_new = current_user.posts.new
+    end
   end
 
   def create
     @post = current_user.posts.new(post_params)
-    if @post.save
+    if !@post.title.blank? && @post.save
       flash[:notice] = "Post created successfully."
       redirect_to post_path(@post.id)
     else
-      render :new
+      redirect_to new_post_path
     end
   end
 
