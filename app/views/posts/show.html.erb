@@ -20,10 +20,12 @@
 <ul>
 <% @post.comments.each do |comment| %>
   <%@user = comment.user%>
+  <%@comment_id = comment.id%>
+
   <li>
     <div class = "comment">
       <strong><%=link_to @user.username, user_path(@user.id)%></strong>: <br> &nbsp;&nbsp;
-      <%= link_to post_comment_path(params[:post_id], comment) do %>
+      <%= link_to post_comment_path(params[:id]) do %>
         <%= image_tag comment.pic.url %><br>
       <% end %>
       
