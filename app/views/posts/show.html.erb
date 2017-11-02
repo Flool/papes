@@ -1,0 +1,26 @@
+<h1><%= @post.title %></h1>
+<%if @post.user == current_user%>
+  <%= link_to "delete post", post_path(@post), method: :delete %>
+  <%= link_to "edit post", edit_post_path(@post) %>
+<%end%>
+
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit "comment" %>
+<% end %>
+
+
+<ul>
+<% @post.comments.each do |comment| %>
+  <li>
+    <div class = "comment">
+      <strong><%=comment.user.username%></strong>: <br> &nbsp;&nbsp; <%= comment.content %><br>
+      <%if comment.user == current_user%>
+        <%= link_to "delete comment", comment_path(comment), method: :delete %>
+        
+      <%end%>
+    </div>
+  </li>
+<% end %>
+</ul>
