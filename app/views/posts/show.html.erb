@@ -6,17 +6,24 @@
 <%end%>
 
 
-<%= form_for [@post, @comment] do |f| %>
-  <%= f.text_field :content %>
+<%= form_for [@post, @comment], html: { multipart: true } do |f| %>
+  <div class="field">
+    <%= f.text_field :content %>
+    <br>
+    <%= f.file_field :pic %>
+  </div>
   <%= f.submit "comment" %>
 <% end %>
 
 
 <ul>
 <% @post.comments.each do |comment| %>
+
   <li>
     <div class = "comment">
-      <strong><%=comment.user.username%></strong>: <br> &nbsp;&nbsp; <%= comment.content %><br>
+      <strong><%=comment.user.username%></strong>: <br> &nbsp;&nbsp;
+      <%= image_tag comment.pic.url %><br>
+      <%= comment.content %><br>
       <%if comment.user == current_user%>
         <%= link_to "delete comment", comment_path(comment), method: :delete %>
       <%end%>

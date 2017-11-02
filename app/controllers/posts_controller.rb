@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @post.id = (params[:id])
     @comment = Comment.new    
   end
 
@@ -47,8 +48,6 @@ class PostsController < ApplicationController
 
   private
   
-  # Use strong_parameters for attribute whitelisting
-  # Be sure to update your create() and update() controller methods.
   
   def post_params
     params.require(:post).permit(:title, :pic)

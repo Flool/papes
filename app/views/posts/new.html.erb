@@ -1,8 +1,4 @@
-<h1>Create Post</h1>
-<%= form_for @post_new do |f| %>
-  
-<% end %>
-
+<h1>Create New Thread</h1>
 <%= form_for @post_new, url: posts_path, html: { multipart: true } do |f| %>
   <div class="field">
     <%= f.label :title %>
