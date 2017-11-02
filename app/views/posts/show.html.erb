@@ -1,4 +1,5 @@
 <h1><%= @post.title %></h1>
+<strong><%=link_to @post.user.username, user_path(@post.user.id)%></strong><br>
 <%= image_tag @post.pic.url %>
 <%if @post.user == current_user%>
   <%= link_to "delete post", post_path(@post), method: :delete %>
@@ -18,11 +19,14 @@
 
 <ul>
 <% @post.comments.each do |comment| %>
-
+  <%@user = comment.user%>
   <li>
     <div class = "comment">
-      <strong><%=comment.user.username%></strong>: <br> &nbsp;&nbsp;
-      <%= image_tag comment.pic.url %><br>
+      <strong><%=link_to @user.username, user_path(@user.id)%></strong>: <br> &nbsp;&nbsp;
+      <%= link_to post_comment_path(params[:post_id], comment) do %>
+        <%= image_tag comment.pic.url %><br>
+      <% end %>
+      
       <%= comment.content %><br>
       <%if comment.user == current_user%>
         <%= link_to "delete comment", comment_path(comment), method: :delete %>

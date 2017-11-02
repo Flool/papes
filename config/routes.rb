@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
 
   resources :posts do
-    resources :comments, only: [:create, :destroy, :edit, :update]
+    resources :comments, only: [:show, :create, :destroy, :edit, :update]
   end
 
   # Don't know why I had to do this - band aid fix
