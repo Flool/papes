@@ -25,7 +25,7 @@
   <li>
     <div class = "comment">
       <strong><%=link_to @user.username, user_path(@user.id)%></strong>: <br> &nbsp;&nbsp;
-      <%= link_to post_comment_path(params[:id]) do %>
+      <%= link_to post_comment_path(params[:id], comment) do %>
         <%= image_tag comment.pic.url %><br>
       <% end %>
       
