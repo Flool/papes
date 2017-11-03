@@ -19,6 +19,7 @@
   padding: 0px;
   margin-top: -10px;
   margin-bottom: -5px;
+  background-image: url("http://www.clker.com/cliparts/D/L/7/f/m/v/clouds-hi.png")
 }
 .create{
   margin: 0 auto;
@@ -45,4 +46,35 @@ h1{
   font-family: 'Muli', sans-serif;
   text-align: center;
   font-size: 45px;
+  color: white;
+  text-shadow: 2px 2px #000000;
+  padding-top: 15px;
+}
+
+.card-img-top{
+  width: 100%;
+  height: 220px;
+}
+
+.row{
+  display: flex;
+  justify-content: space-evenly;
+}
+.card{
+  margin: solid 2px black;
+  border-radius: 3px;
+}
+.card-block{
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+  padding-top: 7px;
+}
+.col-sm-4{
+  padding: 35px
+}
+.menu{
+  background-image: url("https://i.pinimg.com/originals/7b/6d/2a/7b6d2ad42d7b85c4aaa5791e9fe1eec9.jpg");
+  background-size: fill;
+  background-repeat: no-repeat;
 }

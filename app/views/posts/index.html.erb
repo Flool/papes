@@ -1,40 +1,44 @@
-<h1>All Threads</h1>
-<% @posts.each_with_index do |post,idx| %>
-  <%if idx%3==0%>
-    <div class="row">
+<div class="menu">
+  <h1>All Threads</h1>
+  <% @posts.each_with_index do |post,idx| %>
+    <%if idx%3==0%>
+      <div class="row">
+        <%= link_to post_path(post) do %>
+          <div class="col-sm-4">
+            <div class="card" style="width: 20rem;">
+              <img class="card-img-top" src="<%= post.pic %>" alt="Card image cap">
+              <div class="card-block">
+                <h4 class="card-title"><%=post.title%></h4>
+                <p class="card-text"></p>
+              </div>
+            </div>
+          </div>
+        <%end%>
+    <%elsif idx%3==2 || post == @posts.last%>
+    <%= link_to post_path(post) do %>
       <div class="col-sm-4">
         <div class="card" style="width: 20rem;">
           <img class="card-img-top" src="<%= post.pic %>" alt="Card image cap">
           <div class="card-block">
             <h4 class="card-title"><%=post.title%></h4>
             <p class="card-text"></p>
-            <%= link_to 'View', post_path(post), :class => "btn btn-primary"  %>
           </div>
         </div>
       </div>
-  <%elsif idx%3==2 || post == @posts.last%>
-    <div class="col-sm-4">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="<%= post.pic %>" alt="Card image cap">
-        <div class="card-block">
-          <h4 class="card-title"><%=post.title%></h4>
-          <p class="card-text"></p>
-          <%= link_to 'View', post_path(post), :class => "btn btn-primary"  %>
+    </div> 
+    <%end%>
+    <%else%>
+      <%= link_to post_path(post) do %>
+        <div class="col-sm-4">
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="<%= post.pic %>" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title"><%=post.title%></h4>
+              <p class="card-text"></p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-   </div> 
-   <%else%>
-    <div class="col-sm-4">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="<%= post.pic %>" alt="Card image cap">
-        <div class="card-block">
-          <h4 class="card-title"><%=post.title%></h4>
-          <p class="card-text"></p>
-          <%= link_to 'View', post_path(post), :class => "btn btn-primary"  %>
-        </div>
-      </div>
-    </div>
-  <%end%>
-<% end %>
-
+      <%end%>
+    <%end%>
+  <% end %>
+</div>
