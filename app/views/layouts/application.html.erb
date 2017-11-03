@@ -4,12 +4,13 @@
     <title>Papes</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Muli" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -17,13 +18,13 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="/posts">Papes</a>
+  <a class="papes navbar-brand" href="/posts">Papes</a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
     <% if current_user %>
-      <li class="nav-item">
-        <a class="nav-link" href="/posts/new">Create Thread</a>
+      <li class="c-container nav-item">
+        <a href="/posts/new" class="create btn btn-primary">Create Thread</a>
       </li>
     <%end%>
       
@@ -33,15 +34,15 @@
 
       <% if current_user %>
           <li class="nav-item">
-            <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
+            <%= link_to current_user.username, user_path(current_user), class:"acc btn btn-primary" %>
           </li>
           <li>
-            <%= link_to 'Log Out', session_path('dummy'), method: :delete, class: "nav-link" %>
+            <%= link_to 'Log Out', session_path('dummy'), method: :delete, class:"acc btn btn-primary" %>
           </li>
           <% else %>
-            <li><a class="nav-link" href="/login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</a></li>
+            <%= link_to "Log In", login_path, class:"acc btn btn-primary" %>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <li><a class="nav-link" href="/users/new"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Sign Up</a></li>
+            <%= link_to "Sign up", new_user_path, class:"acc btn btn-primary" %>
           <% end %>
 
 

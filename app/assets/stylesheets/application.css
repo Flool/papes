@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+.navbar-brand{
+  font-family: 'Lobster', cursive;
+  font-size: 45px;
+  padding: 0px;
+  margin-top: -10px;
+  margin-bottom: -5px;
+}
+.create{
+  margin: 0 auto;
+  font-family: 'Lobster', cursive;
+  font-size: 25px
+}
+.acc{
+  font-size: 18px
+}
+
+.navbar-collapse {
+  text-align:center;
+}
+.navbar-nav {
+    display:flex;
+    float:none;
+    align-content: flex-end;
+}
+.c-container{
+  align-self: center;
+}
+
+h1{
+  font-family: 'Muli', sans-serif;
+  text-align: center;
+  font-size: 45px;
+}
