@@ -75,7 +75,7 @@ h1{
 .col-sm-4{
   padding: 35px;
 }
-.menu{
+body{
   background-image: url("http://wallup.net/wp-content/uploads/2016/04/10/319089-drawing-sky-clouds.jpg");
   background-size: cover;
 }
@@ -130,4 +130,21 @@ h1{
   padding-left: 15px;
   padding-bottom: 15px;
   font-size: 25px;
+}
+
+.com{
+  background-color:rgba(234, 253, 255, 0.845);
+  max-width: 40%;
+  padding: 5px 10px;
+  margin: 30px auto;
+  border-radius: 5px;
+}
+
+.col-sm-6{
+  background-color:rgba(195, 251, 255, 0.838);
+  max-width: 40%;
+  padding: 5px 10px;
+  margin: 30px auto;
+  border-radius: 5px;
+  text-align: center;
 }

@@ -1,49 +1,47 @@
-<div class="menu">
-  <div class="post-c col-lg-12">
-    <%= image_tag @post.pic.url, :class => "opost img-responsive" %>
-  </div>
+<div class="post-c col-lg-12">
+  <%= image_tag @post.pic.url, :class => "opost img-responsive" %>
+</div>
 
-  <div class="footer">
-    <h2><%= @post.title %><span></span></h2>
-    <%if @post.user == current_user%>
-      <%= link_to "delete post", post_path(@post), method: :delete %>
-      &nbsp;|&nbsp;
-      <%= link_to "edit post", edit_post_path(@post) %>
-    <%else%>
-      <strong>posted by: <%=link_to @post.user.username, user_path(@post.user.id)%></strong><br>
-    <%end%>
-  </div>
+<div class="footer">
+  <h2><%= @post.title %><span></span></h2>
+  <%if @post.user == current_user%>
+    <%= link_to "delete post", post_path(@post), method: :delete %>
+    &nbsp;|&nbsp;
+    <%= link_to "edit post", edit_post_path(@post) %>
+  <%else%>
+    <strong>posted by: <%=link_to @post.user.username, user_path(@post.user.id)%></strong><br>
+  <%end%>
+</div>
 
 <h1 class="c-title">Comments:</h1>
-  <div class="c-form">
-  <h4>Submit Comment</h4>
-    <%= form_for [@post, @comment], html: { multipart: true } do |f| %>
-      <div class="field">
-        <%= f.text_field :content %>
-        <%= f.file_field :pic %>
-        <%= f.submit "comment" %>
-      </div>
-    <% end %>
-  </div>
-
-  
-  <% @post.comments.each do |comment| %>
-    <%@user = comment.user%>
-    <%@comment_id = comment.id%>
-
-      <div class = "comment">
-        <strong><%=link_to @user.username, user_path(@user.id)%></strong>:
-        <div class="content">
-            <%= comment.content %>
-          </div>
-        <%= link_to post_comment_path(params[:id], comment) do %>
-        <%if comment.pic.url != nil%>
-          <%= image_tag comment.pic.url, :class => "img-thumbnail" %><br>
-        <%end%>
-        <% end %>
-        <%if comment.user == current_user%>
-          <%= link_to "delete comment", comment_path(comment), method: :delete %>
-        <%end%>
-      </div>
+<div class="c-form">
+<h4>Submit Comment</h4>
+  <%= form_for [@post, @comment], html: { multipart: true } do |f| %>
+    <div class="field">
+      <%= f.text_field :content %>
+      <%= f.file_field :pic %>
+      <%= f.submit "comment" %>
+    </div>
   <% end %>
 </div>
+
+
+<% @post.comments.each do |comment| %>
+  <%@user = comment.user%>
+  <%@comment_id = comment.id%>
+
+    <div class = "comment">
+      <strong><%=link_to @user.username, user_path(@user.id)%></strong>:
+      <div class="content">
+          <%= comment.content %>
+        </div>
+      <%= link_to post_comment_path(params[:id], comment) do %>
+      <%if comment.pic.url != nil%>
+        <%= image_tag comment.pic.url, :class => "img-thumbnail" %><br>
+      <%end%>
+      <% end %>
+      <%if comment.user == current_user%>
+        <%= link_to "delete comment", comment_path(comment), method: :delete %>
+      <%end%>
+    </div>
+<% end %>

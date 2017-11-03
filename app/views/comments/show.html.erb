@@ -1,3 +1,8 @@
-<h2>Comment on: <%= link_to @post.title, @post %></h2>
-<h4>&nbsp;&nbsp;&nbsp;&nbsp;by: <%= @post.user.username%><br>
-<%= image_tag @comment.pic.url %><br>
+<div class="post-c col-lg-12">
+  <%= image_tag @comment.pic.url, :class => "opost img-responsive" %>
+</div>
+<div class="com">
+<h2>Original Thread: <%= link_to @post.title, @post %></h2>
+<h4>&nbsp;&nbsp;&nbsp;&nbsp;by: <%=link_to @post.user.username, user_path(@post.user.id)%><br>
+</div>
+
