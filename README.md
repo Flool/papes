@@ -1,24 +1,25 @@
-# README
+# Papes
+Papes is a forum website made for posting and sharing Wallpapers of any kind. Once logged in, users can comment on any thread to contribute, or create their own thread. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+![TitleScreenshot](https://i.imgur.com/RgIlJs8.png)
 
-* Ruby version
+![TitleScreenshot](https://i.imgur.com/mKqBPT4.png)
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+## Technologies Used
+Ruby, Ruby On Rails, HTML, CSS
 
-* Database initialization
+## Getting Started
+<https://stark-ravine-63742.herokuapp.com>
 
-* How to run the test suite
+## Next Steps
+#### List of things I'd like to add
+	*Fancy animations for thread previews
+	*Profile Pictures/Customizable profiles
+	*Likes/Upvotes
+	*Search bar
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Trello
+<https://trello.com/b/2VanbcDT/wallpaper-forum>
