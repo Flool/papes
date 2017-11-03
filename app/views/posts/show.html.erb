@@ -13,17 +13,19 @@
   <%end%>
 </div>
 
-<h1 class="c-title">Comments:</h1>
-<div class="c-form">
-<h4>Submit Comment</h4>
-  <%= form_for [@post, @comment], html: { multipart: true } do |f| %>
-    <div class="field">
-      <%= f.text_field :content %>
-      <%= f.file_field :pic %>
-      <%= f.submit "comment" %>
-    </div>
-  <% end %>
-</div>
+<%if current_user%>
+  <h1 class="c-title">Comments:</h1>
+  <div class="c-form">
+  <h4>Submit Comment</h4>
+    <%= form_for [@post, @comment], html: { multipart: true } do |f| %>
+      <div class="field">
+        <%= f.text_field :content %>
+        <%= f.file_field :pic %>
+        <%= f.submit "comment" %>
+      </div>
+    <% end %>
+  </div>
+<%end%>
 
 
 <% @post.comments.each do |comment| %>
